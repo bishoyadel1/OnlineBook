@@ -1,0 +1,54 @@
+﻿@model AddOrDeletePerimssionFromRole 
+
+@{
+
+
+}
+<hr />
+<hr />
+<hr /><hr />
+
+<div class="container">
+    <div class="row-md-6">
+
+<div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" asp-action="AssignPerimssion">
+                   <input type="text" class="form-control" hidden id="exampleInputEmail1" placeholder="" asp-for="RoleId" value="@Model.RoleId">
+                <div class="card-body">
+                      <div class="form-group">
+                    <label asp-for="RoleName" for="exampleInputEmail1"></label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" asp-for="RoleName" value="@Model.RoleName" readonly>
+                  </div>
+                   <div class="card-body">
+                      <div class="form-group">
+           
+                    <hr />
+                                @for (var i = 0;i < Model.Perimssions.Count; i++)
+                                {
+                                            <label asp-for="@Model.Perimssions[i].IsSelected" for="exampleInputEmail1">@Model.Perimssions[i].PermissionName</label>
+                                            <input type="checkbox" class="form-control" id="exampleInputEmail1" placeholder="" asp-for="@Model.Perimssions[i].IsSelected" >
+                                                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" asp-for="@Model.Perimssions[i].PermissionName" hidden >
+                                }
+                   
+                  </div>
+                 
+                  
+                
+                 
+
+                
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+</div>
+</div>
